@@ -1,24 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import SampleComponent from './components/SampleComponents.vue'
-import AppListItem from './components/AppListItem.vue'
-import Counter from './components/Counter.vue'
-
-const hoge = ref('')
+import Header from './components/modules/Header.vue'
 </script>
 
 <template>
-  <div>
-    <input v-model="hoge" placeholder="書いてくれ！" />
-    <Counter />
-    <AppListItem />
-    <Suspense>
-      <template #default>
-        <SampleComponent :hoge="hoge" />
-      </template>
-      <template #fallback><p>Loading......</p></template>
-    </Suspense>
-  </div>
+  <Header />
+  <router-view></router-view>
 </template>
 
 <style>
