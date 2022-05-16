@@ -23,4 +23,8 @@ onMounted(() => {
 <template>
   <a href="#" @click.prevent="increment">Increment</a> {{ number }}
   <p>{{ form.name }} {{ form.password }}</p>
+  <form action="">
+    <input type="text" v-model="form.name" />
+    <input type="password" v-model="form.password" />
+  </form>
 </template>
