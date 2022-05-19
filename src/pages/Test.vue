@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, watch, onMounted } from 'vue'
+import { ref, reactive, watch, onMounted, computed } from 'vue'
 import { useNumbers } from '../hooks/numbers'
 
 const { increment, decrement, number } = useNumbers()
@@ -23,6 +23,8 @@ const getUsers = () => {
   ]
 }
 
+const nameShouting = computed(() => form.name.toUpperCase())
+
 watch(number, () => {
   console.log('Number Changed')
 })
@@ -37,6 +39,7 @@ onMounted(() => {
   <a href="#" @click.prevent="increment">Increment</a><br />
   <a href="#" @click.prevent="decrement">Decrement</a><br />
   {{ number }}
+  {{ nameShouting }}
   <p>{{ form.name }} {{ form.password }}</p>
   <form action="">
     <input type="text" v-model="form.name" />
