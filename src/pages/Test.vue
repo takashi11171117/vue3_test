@@ -23,7 +23,12 @@ const getUsers = () => {
   ]
 }
 
-const nameShouting = computed(() => form.name.toUpperCase())
+const nameShouting = computed({
+  get: () => form.name.toUpperCase(),
+  set: (value) => {
+    form.name = value.toUpperCase()
+  },
+})
 
 watch(number, () => {
   console.log('Number Changed')
