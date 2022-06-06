@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import SampleComponent from './components/SampleComponents.vue'
 import AppListItem from './components/AppListItem.vue'
+import Counter from './components/Counter.vue'
 
 const hoge = ref('')
 </script>
@@ -9,6 +10,7 @@ const hoge = ref('')
 <template>
   <div>
     <input v-model="hoge" placeholder="書いてくれ！" />
+    <Counter />
     <AppListItem />
     <Suspense>
       <template #default>
