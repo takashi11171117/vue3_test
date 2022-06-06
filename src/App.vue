@@ -8,6 +8,11 @@ const hoge = ref('')
 <template>
   <div>
     <input v-model="hoge" placeholder="書いてくれ！" />
-    <SampleComponent :hoge="hoge" />
+    <Suspense>
+      <template #default>
+        <SampleComponent :hoge="hoge" />
+      </template>
+      <template #fallback><p>Loading......</p></template>
+    </Suspense>
   </div>
 </template>

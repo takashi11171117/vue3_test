@@ -2,19 +2,13 @@
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
 
-const todos = ref([])
-
 defineProps<{
   hoge: string
 }>()
 
-onMounted(async () => {
-  await axios
-    .get('https://jsonplaceholder.typicode.com/todos/')
-    .then((response) => {
-      todos.value = response.data
-    })
-})
+const response = await axios.get('https://jsonplaceholder.typicode.com/todos/')
+console.log(response)
+const todos = ref(response.data)
 </script>
 
 <template>
